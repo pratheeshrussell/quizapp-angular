@@ -1,6 +1,8 @@
 # Quiz app
 Trying to learn angular by making a simple quiz app.  
 
+ONLY COMPLETED HOME PAGE BTW
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
 ## Development server
