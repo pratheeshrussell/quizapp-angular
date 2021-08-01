@@ -1,0 +1,7 @@
+.full-container{
+    min-height:100vh;
+}
+
+input.ng-touched.ng-invalid{
+    border:2px solid red;
+}
