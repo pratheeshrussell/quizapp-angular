@@ -2,7 +2,8 @@
 Trying to learn angular by making a simple quiz app.  
 Github Page Url: https://pratheeshrussell.github.io/quizapp-angular/
 
-ONLY COMPLETED HOME PAGE BTW
+* Need to add an auth guard to prevent access without query param  
+* Need to handle error if quiz data api is not available
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
