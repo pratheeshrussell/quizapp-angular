@@ -1,1 +1,12 @@
 <p><b [innerHTML]="(questionIndex + 1) + ') ' + questionData.question"></b></p>
+<form [formGroup]="form" style="margin-left: 30px;">
+    <div *ngFor="let option of options" style="margin: 10px;">
+        <div class="row" [ngStyle]="getBgColor(option)" style="width:50%;">
+            <span>
+            <input type="radio" name="selectedOption" [value]="option" 
+            formControlName="selectedOption" (change)="setValidationOption()" >
+            <label class="mx-2" [innerHTML]="option"></label>
+        </span>
+        </div>
+    </div>
+</form>

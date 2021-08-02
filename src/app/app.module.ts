@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizQuestionComponent } from './pages/quiz-page/quiz-question/quiz-question.component';
 
@@ -22,6 +22,7 @@ import { QuizQuestionComponent } from './pages/quiz-page/quiz-question/quiz-ques
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [],

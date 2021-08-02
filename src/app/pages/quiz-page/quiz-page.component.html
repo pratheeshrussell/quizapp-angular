@@ -5,6 +5,12 @@
 
 <div *ngFor="let question of quizData; let i = index">
     <app-quiz-question [question]="question" [index]="i" ></app-quiz-question>
+    <br>
 </div>
 
+{{ resultText }}
+<div>
+<button type="button" class="btn btn-primary m-3" (click)="doValidate()">Check</button>
+<button type="button" class="btn btn-primary m-3" (click)="doClear()">Clear</button>
+</div>
 </div>
