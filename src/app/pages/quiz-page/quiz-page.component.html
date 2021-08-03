@@ -1,16 +1,26 @@
 <div class="full-container">
 
 <h1>Hi! {{name}}</h1>
+<div *ngIf="errorMsg != ''">
+<hr>
+<div class="alert alert-danger" role="alert" style="width:75%">
+    <h4 class="alert-heading">An Error Occured!</h4>
+    <p>{{errorMsg}}</p>
+</div>
+</div>
+<div *ngIf="errorMsg == ''">
 <h2>Lets Start!!</h2>
-
 <div *ngFor="let question of quizData; let i = index">
     <app-quiz-question [question]="question" [index]="i" ></app-quiz-question>
     <br>
 </div>
-
-{{ resultText }}
+<div *ngIf="resultText != ''">
+<div class="alert alert-info" role="alert" style="width:50%">
+    {{ resultText }}
+</div></div>
 <div>
 <button type="button" class="btn btn-primary m-3" (click)="doValidate()">Check</button>
 <button type="button" class="btn btn-primary m-3" (click)="doClear()">Clear</button>
+</div>
 </div>
 </div>

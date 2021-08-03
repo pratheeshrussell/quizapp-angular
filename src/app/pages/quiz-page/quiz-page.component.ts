@@ -14,11 +14,20 @@ export class QuizPageComponent implements OnInit {
 
   name = '';
   resultText = '';
+  errorMsg = '';
   quizData: QuizQuestions[] = [];
   ngOnInit(): void {
+    // get name from query param
     this.name = this.route.snapshot.queryParams.name;
     // Another way to get this data will be through the service
-    this.quizData = this.route.snapshot.data.quizData;
+    // Make sure to handle error
+    if (typeof this.route.snapshot.data.quizData === 'string') {
+      this.errorMsg = this.route.snapshot.data.quizData;
+      this.quizData = [];
+    } else {
+      this.errorMsg = '';
+      this.quizData = this.route.snapshot.data.quizData;
+    }
     // set validation defaults
     this.quizService.answerValidations = new Array(this.quizData.length).fill(false);
   }

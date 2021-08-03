@@ -3,6 +3,6 @@ export class AppConstants{
 
     static resultText = 'You got {correct}/{total}';
     static errorCodes = {
-        NoData: 'unable to load data'
+        NoData: 'unable to load data from the api'
     };
 }
