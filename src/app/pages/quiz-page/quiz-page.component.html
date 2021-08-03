@@ -14,9 +14,9 @@
     <app-quiz-question [question]="question" [index]="i" ></app-quiz-question>
     <br>
 </div>
-<div *ngIf="resultText != ''">
+<div *ngIf="correctCount != -1">
 <div class="alert alert-info" role="alert" style="width:50%">
-    {{ resultText }}
+    {{ correctCount | transformResult:totalCount }}
 </div></div>
 <div>
 <button type="button" class="btn btn-primary m-3" (click)="doValidate()">Check</button>

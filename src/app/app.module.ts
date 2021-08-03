@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizQuestionComponent } from './pages/quiz-page/quiz-question/quiz-question.component';
 import { ArrayShufflePipe } from './pipes/array-shuffle.pipe';
+import { TransformResultPipe } from './pipes/transform-result.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ArrayShufflePipe } from './pipes/array-shuffle.pipe';
     ErrorPageComponent,
     QuizPageComponent,
     QuizQuestionComponent,
-    ArrayShufflePipe
+    ArrayShufflePipe,
+    TransformResultPipe
   ],
   imports: [
     BrowserModule,

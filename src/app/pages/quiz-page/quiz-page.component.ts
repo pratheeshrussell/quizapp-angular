@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppConstants } from 'src/app/constants/app-constants';
 import { QuizQuestions } from 'src/app/models/quiz.model';
 import { QuizDataService } from 'src/app/services/quiz-data.service';
 
@@ -13,9 +12,10 @@ export class QuizPageComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private quizService: QuizDataService) { }
 
   name = '';
-  resultText = '';
+  // resultText = '';
   errorMsg = '';
   quizData: QuizQuestions[] = [];
+  totalCount = 0; correctCount = -1;
   ngOnInit(): void {
     // get name from query param
     this.name = this.route.snapshot.queryParams.name;
@@ -27,6 +27,7 @@ export class QuizPageComponent implements OnInit {
     } else {
       this.errorMsg = '';
       this.quizData = this.route.snapshot.data.quizData;
+      this.totalCount = this.quizData.length;
     }
     // set validation defaults
     this.quizService.answerValidations = new Array(this.quizData.length).fill(false);
@@ -42,10 +43,7 @@ export class QuizPageComponent implements OnInit {
     }
     this.quizService.isValidated = true;
     this.quizService.validatedEmitter.next(true); // emit message
-    this.resultText = AppConstants.resultText.replace('{correct}', correctCount.toString())
-    .replace('{total}', this.quizData.length.toString());
-    // console.log('correct answers: ' , correctCount);
-    // console.log('wrong answers: ' , (this.quizData.length - correctCount));
+    this.correctCount = correctCount; // use pipe to output the message
   }
 
   doClear(): void{
@@ -56,7 +54,7 @@ export class QuizPageComponent implements OnInit {
     }
     this.quizService.validatedEmitter.next(false); // emit message
     this.quizService.clearEmitter.next(true);
-    this.resultText = '';
+    this.correctCount = -1;
   }
 
 }
