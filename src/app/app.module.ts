@@ -9,6 +9,7 @@ import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizQuestionComponent } from './pages/quiz-page/quiz-question/quiz-question.component';
+import { ArrayShufflePipe } from './pipes/array-shuffle.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { QuizQuestionComponent } from './pages/quiz-page/quiz-question/quiz-ques
     HomeComponent,
     ErrorPageComponent,
     QuizPageComponent,
-    QuizQuestionComponent
+    QuizQuestionComponent,
+    ArrayShufflePipe
   ],
   imports: [
     BrowserModule,

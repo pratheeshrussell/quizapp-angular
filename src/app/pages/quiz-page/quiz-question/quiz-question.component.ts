@@ -24,7 +24,7 @@ export class QuizQuestionComponent implements OnInit {
   form = new FormGroup({
     selectedOption: new FormControl('', Validators.required)
   });
-  constructor(private supportService: SupportService, private quizService: QuizDataService) { }
+  constructor(private quizService: QuizDataService) { }
 
   ngOnInit(): void {
     this.setOptions();
@@ -42,7 +42,7 @@ export class QuizQuestionComponent implements OnInit {
     this.options.push(...this.questionData.incorrect_answers);
     this.options.push(this.questionData.correct_answer);
     this.correctOption = this.questionData.correct_answer;
-    this.options = this.supportService.arrayShuffle(this.options);
+    // this.options = this.supportService.arrayShuffle(this.options); // use pipe instead
   }
 
   setValidationOption(): void{
@@ -57,7 +57,7 @@ export class QuizQuestionComponent implements OnInit {
 
   getBgColor(option: string): any{
     const returner = {backgroundColor: 'white' };
-    if(this.isValidated){
+    if (this.isValidated){
     if (option === this.correctOption){
       returner.backgroundColor = 'green';
     }
